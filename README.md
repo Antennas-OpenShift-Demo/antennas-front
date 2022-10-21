@@ -47,6 +47,14 @@ You can then execute your native executable with: `./target/antennas-front-1.0.0
 
 If you want to learn more about building native executables, please consult https://quarkus.io/guides/maven-tooling.
 
+## Building the container image
+
+```sh
+./mvnw clean package
+buildah build -f src/main/docker/Dockerfile.jvm -t quay.io/redhat_sa_france/antennas-front:latest
+podman push quay.io/redhat_sa_france/antennas-front:latest
+```
+
 ## Related Guides
 
 - RESTEasy Classic ([guide](https://quarkus.io/guides/resteasy)): REST endpoint framework implementing JAX-RS and more
